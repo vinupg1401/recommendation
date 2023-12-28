@@ -1,0 +1,21 @@
+#recommendation system
+class SnackRecommendationSystem:
+    def __init__(self):
+        self.preferences = {
+            "sweet": ["chocolate", "cookies", "candy", "cake"],
+            "salty": ["chips", "popcorn", "pretzels"],
+            "healthy": ["fruits", "nuts", "vegetable sticks"]
+        }
+
+    def recommend_snack(self, preference):
+        if preference.lower() in self.preferences:
+            recommended_snack = self.preferences[preference.lower()]
+            return f"If you prefer {preference.lower()} snacks, you might like: {', '.join(recommended_snack)}"
+        else:
+            return "Sorry, we don't have recommendations for that preference."
+
+# Example usage:
+snack_system = SnackRecommendationSystem()
+user_preference = input("What kind of snacks do you prefer? (sweet/salty/healthy): ")
+recommendation = snack_system.recommend_snack(user_preference)
+print(recommendation)
